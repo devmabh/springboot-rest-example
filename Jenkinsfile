@@ -5,8 +5,8 @@ pipeline {
              steps {
              script { 
                  checkout scm 
-                 def mvnHome = tool 'maven-3' 
-                 def javaHome = tool 'JAVA_1.8' 
+               /* def mvnHome = tool 'maven-3' 
+                  def javaHome = tool 'JAVA_1.8' */
                      }
                   }
               } 
@@ -15,8 +15,11 @@ pipeline {
       steps {
        script { 
          try { 
-          sh "mvn clean install"
-          sh "java -version"
+          sh 'sudo apt-get -y install openjdk-8-jdk'
+          sh 'sudo apt-get -y update openjdk-8-jdk'
+          sh 'sudo apt-get -y install maven' 
+          sh 'mvn clean install'
+          sh 'java -version'
           currentBuild.result = 'SUCCESS' 
          } catch (Exception err)
            {

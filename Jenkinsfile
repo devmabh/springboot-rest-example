@@ -16,8 +16,8 @@ pipeline {
        script { 
          try { 
           sh 'sudo apt-get update -y'
-          sh 'sudo apt install openjdk-8-jdk'
-          sh 'sudo apt install maven' 
+          sh 'sudo apt -y install openjdk-8-jdk'
+          sh 'sudo apt -y install maven' 
           sh 'mvn clean install -DskipTests'
           sh 'java -version'
           currentBuild.result = 'SUCCESS' 
@@ -26,6 +26,11 @@ pipeline {
            currentBuild.result = 'FAILURE' 
            }
        }
+      }
+     
+      
+         
+       
       }
      }
     }         

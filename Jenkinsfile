@@ -15,10 +15,10 @@ pipeline {
       steps {
        script { 
          try { 
-          sh 'sudo apt-get -y update'
-          sh 'sudo apt-get -y install openjdk-8-jdk'
-          sh 'sudo apt-get -y install maven' 
-          sh 'mvn clean install'
+          sh 'sudo apt-get update -y'
+          sh 'sudo apt install openjdk-8-jdk'
+          sh 'sudo apt install maven' 
+          sh 'mvn clean install -DskipTests'
           sh 'java -version'
           currentBuild.result = 'SUCCESS' 
          } catch (Exception err)

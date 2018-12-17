@@ -31,7 +31,7 @@ pipeline {
       stage ('docker build') {
        steps {
            sh "sudo docker build -t devmabh/springboot . "
-           sh "sudo docker login -u=$env.username -p=$env.password"
+           sh "sudo docker login -u=$env.dockerlogin -p=$env.password"
            sh "sudo docker push devmabh/springboot"
        }
        }

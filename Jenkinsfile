@@ -33,7 +33,7 @@ pipeline {
            sh "sudo docker build -t devmabh/springboot . "
            sh "sudo docker login -u=$env.dockerlogin -p=$env.password"
            sh "sudo docker push devmabh/springboot"
-        
+           sh "sudo docker run -p 3000:8080 -d devmabh/springboot 
        }
        }
       

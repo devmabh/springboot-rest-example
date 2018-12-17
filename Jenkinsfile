@@ -28,11 +28,7 @@ pipeline {
        }
       }
          
-        stage (' Docker build' ) 
-      {
-        Docker build -t devmabh/sprintboot
-      }
-      
+   
       
      }
     }         

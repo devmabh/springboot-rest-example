@@ -15,8 +15,8 @@ pipeline {
       steps {
        script { 
          try { 
+          sh 'sudo apt-get -y update'
           sh 'sudo apt-get -y install openjdk-8-jdk'
-          sh 'sudo apt-get -y update openjdk-8-jdk'
           sh 'sudo apt-get -y install maven' 
           sh 'mvn clean install'
           sh 'java -version'
